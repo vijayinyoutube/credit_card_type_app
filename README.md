@@ -45,6 +45,12 @@ sliding_up_panel: ^2.0.0+1
 ```
 
 
+## Sample Result
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/58719230/190888768-27ab3dd8-f232-4be6-b006-ddbb27910164.gif" width="250" height="525">  
+</div>  
+
 ## License
 
 ```
