@@ -1,28 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/credit_card_widget.dart';
-import 'package:flutter_credit_card/glassmorphism_config.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../../../Components/appbar.dart';
+import '../../../Components/sliding_panel.dart';
+import '../Widgets/first_view.dart';
+import '../Widgets/first_view_cta.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late PanelController slideAController;
+
+  @override
+  void initState() {
+    slideAController = PanelController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    slideAController.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(appBarTitle: title),
-      body: CreditCardWidget(
-        //  glassmorphismConfig: Glassmorphism.defaultConfig(),
-        cardNumber: '1212121212121212',
-        expiryDate: '12/12/23',
-        cardHolderName: 'VIJAY',
-        cvvCode: '123',
-        showBackView: true,
-        onCreditCardWidgetChange:
-            (CreditCardBrand) {}, //true when you want to show cvv(back) view
-      ),
+      body: buildInitialLayout(),
     );
   }
+
+  Widget buildInitialLayout() => Center(
+        child: Stack(
+          children: <Widget>[
+            const FirstView(),
+            SlidingPanelBldr(
+              ctaWidget: FirstViewCTA(
+                  panelController: slideAController,
+                  ctaText: 'Enter Card Details'),
+              panelWidget: const SizedBox(),
+              panelController: slideAController,
+              minHeight: 75,
+              maxHeightSub: 230,
+              opacityFactor: 0.15,
+            ),
+          ],
+        ),
+      );
 }
