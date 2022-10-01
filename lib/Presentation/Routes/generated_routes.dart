@@ -1,5 +1,6 @@
-import '../Screens/HomePage/UI/home_page.dart';
 import 'package:flutter/material.dart';
+
+import '../Screens/HomePage/UI/home_page.dart';
 
 class RouteGenerator {
   Route<dynamic> generateRoute(RouteSettings settings) {

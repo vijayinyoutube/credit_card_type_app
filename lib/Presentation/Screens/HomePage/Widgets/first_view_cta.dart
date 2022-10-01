@@ -1,6 +1,7 @@
-import '../../../Components/sliding_cta.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+
+import '../../../Components/sliding_cta.dart';
 
 class FirstViewCTA extends StatelessWidget {
   const FirstViewCTA(
