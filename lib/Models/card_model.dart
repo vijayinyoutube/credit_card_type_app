@@ -16,7 +16,7 @@ class CreditCardModel {
 List<CreditCardModel> listData = [
   CreditCardModel(
       cardHolderName: 'Alice',
-      cardNumber: '923123123123123',
+      cardNumber: '4242424242424242',
       cvvCode: '124',
       expiryDate: '01-02-03',
       showBackView: true),
